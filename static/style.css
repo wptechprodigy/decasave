@@ -1,0 +1,26 @@
+html, body{
+    height: 100%;
+    width: 100%;
+    font-family: "Poppins", sans-serif;
+    color: #222;
+  }
+  .nav-spacing{
+    text-align: left;
+    margin-right: 70px;
+  }
+  .top-space{
+    margin-top: 8px;
+  }
+  .nav-styling{
+    background-color:#fff;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15);
+  }
+  .btn-color:hover{
+      background-color: #5271ff !important;
+  }
+  .txt-color{
+      color: #5271ff !important;
+  }
+  .txt-color:hover{
+      color: #5ce1e6 !important;
+  }
