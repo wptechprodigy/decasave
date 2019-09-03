@@ -41,3 +41,9 @@ html, body{
     padding: 5rem 2.5rem;
     margin: 20% auto;
   }
+  .reghead{
+    padding-bottom: 3rem;
+  }
+  .regbtn{
+    margin-top: 3rem;
+  }
