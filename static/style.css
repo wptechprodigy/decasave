@@ -25,7 +25,7 @@ html, body{
   .btn-color:hover{
       background-color: #5271ff !important;
   }
-  .txt-color{
+  .txt-color, .withdraw{
       color: #5271ff !important;
   }
   .txt-color:hover{
