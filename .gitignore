@@ -1,1 +1,4 @@
-__pychache__
+# Byte-compiled / optimized / DLL files
+__pychache__/
+
+static/vendor/

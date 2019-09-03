@@ -1,8 +1,15 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 html, body{
     height: 100%;
     width: 100%;
     font-family: "Poppins", sans-serif;
     color: #222;
+    background-color: #eafaff;
   }
   .nav-spacing{
     text-align: left;
@@ -23,4 +30,14 @@ html, body{
   }
   .txt-color:hover{
       color: #5ce1e6 !important;
+  }
+
+  .login-container {
+    margin: 0 auto;
+    padding-top: 10%;
+  }
+
+  form {
+    padding: 5rem 2.5rem;
+    margin: 20% auto;
   }
