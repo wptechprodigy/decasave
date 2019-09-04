@@ -121,12 +121,8 @@ html, body{
   text-align: center;
 }
 .form-design{
-  background-color:lightsteelblue;
-  color: white;
-}
-/* footer{
-  background-color: black;
-  color: white;
+  background-color:lightblue;
+  color: black;
 }
 input[type=text], input[type=email]{
   margin-left: 10px;
@@ -169,9 +165,14 @@ input[type=button] a:hover{
   margin-left: 50px;
   font-size: 30px;
 }
+/* footer{
+  background-color: black;
+  color: white;
+}
 .social a{
   margin-left: 20px;
   font-size: 40px;
   padding: 20px;
   color: #eafaff
 } */
+
