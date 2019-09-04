@@ -207,3 +207,29 @@ padding: 20px;
 color: black;
 text-align: left;
 }
+
+/*FAQ styling*/
+.faqs{
+  margin-top: 100px;
+}
+#faqs{
+  color: #5271ff;
+}
+.freq-style{
+  margin-left: 250px;
+}
+.questions{
+  text-decoration: none;
+  color: #5271ff !important;
+}
+.questions:hover{
+  text-decoration: none !important;
+}
+.accordion .card-header:after{
+  font-family: "FontAwesome";
+  content: "\f068";
+  float: right;
+}
+.accordion .card-header .collapsed:after{
+  content: "\f067";
+}
