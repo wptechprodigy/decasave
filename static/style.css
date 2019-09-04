@@ -123,6 +123,10 @@ html, body{
 .form-design{
   background-color:lightblue;
   color: black;
+  margin-top: 20px;
+}
+.contact{
+  margin-top: 20px;
 }
 input[type=text], input[type=email]{
   margin-left: 10px;
@@ -140,9 +144,9 @@ input[type=text], input[type=email]{
   resize: none;
 }
 input[type=button]{
-	width: auto;
+	width: 50%;
 	padding: 7px 10px;
-	margin: 2px 10px 8px 10px;
+	margin: 2px 10px 8px 150px;
 	display: inline-block;
 	border: none;
 	background-color: #5271ff;
@@ -165,14 +169,18 @@ input[type=button] a:hover{
   margin-left: 50px;
   font-size: 30px;
 }
-/* footer{
-  background-color: black;
-  color: white;
+footer{
+  background-color: white;
+  color: black;
+}
+.copy{
+  margin-top: 20px;
 }
 .social a{
   margin-left: 20px;
   font-size: 40px;
   padding: 20px;
-  color: #eafaff
-} */
+  color: black;
+  text-align: left;
+}
 
