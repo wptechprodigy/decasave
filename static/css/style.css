@@ -233,3 +233,17 @@ text-align: left;
 .accordion .card-header .collapsed:after{
   content: "\f067";
 }
+
+/*Forgot Password style*/
+a{
+  text-decoration: none !important;
+  text-align: center;
+  margin-top: 10px;
+}
+.form-control{
+  margin-left: 0px !important;
+}
+.color-reset{
+  color: #5271ff;
+  margin-top: 0px;
+}
