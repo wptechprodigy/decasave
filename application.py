@@ -17,7 +17,7 @@ app.config["TEMPLATES_AUTO_RELOAD"] = True
 
 @app.route("/")
 def index():
-    return render_template("layout.html")
+    return render_template("dashboard-layout.html")
 
 # Ensure responses aren't cached
 # @app.after_request
