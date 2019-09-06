@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href=" https://use.fontawesome.com/releases/v5.0.7/css/all.css">
-    <link rel="stylesheet" href="../static/style.css">
+    <link rel="stylesheet" href="../static/css/style.css">
     <title>DecaSave: Save</title>
 </head>
 
@@ -38,8 +38,8 @@
     </header>
     <div class="container" id="save-container">
         <div class="d-flex justify-content-center rounded">
-            <form class="card" action="/save" method="POST" id="saveform">
-                <h3 class="text-center reghead">Save</h3>
+            <form class="card text-center" action="/save" method="POST" id="saveform">
+                <h3 class="text-center text-primary reghead">Save</h3>
                 <div class="form-group">
                     <label for="amount"><small><strong>how much do you want to save<strong></small></label>
                     <input type="text" name= "samount" class="form-control amount" placeholder="amount"><br>
@@ -47,10 +47,9 @@
                 <div class="form-check form-inline">
                     <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
                     <small>I agree to this transaction</small>
-                    <div class="form-group">
-                    </div>
                 </div>
-                <button type="submit" class="btn btn-primary regbtn"> Save</button>
+                <!-- <script src="https://js.paystack.co/v1/inline.js"></script> -->
+                <button type="submit" class="btn mt-5 btn-primary" > Save </button>
             </form>
         </div>
     </div>
@@ -67,3 +66,30 @@
 </body>
 
 </html>
+<!-- <script>
+        function payWithPaystack(){
+          var handler = PaystackPop.setup({
+            key: 'pk_test_86d32aa1nV4l1da7120ce530f0b221c3cb97cbcc',
+            email: 'customer@email.com',
+            amount: 10000,
+            currency: "NGN",
+            ref: ''+Math.floor((Math.random() * 1000000000) + 1), // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
+            metadata: {
+               custom_fields: [
+                  {
+                      display_name: "Mobile Number",
+                      variable_name: "mobile_number",
+                      value: "+2348012345678"
+                  }
+               ]
+            },
+            callback: function(response){
+                alert('success. transaction ref is ' + response.reference);
+            },
+            onClose: function(){
+                alert('window closed');
+            }
+          });
+          handler.openIframe();
+        }
+      </script> -->
