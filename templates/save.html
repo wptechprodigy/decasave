@@ -42,14 +42,15 @@
                 <h3 class="text-center text-primary reghead">Save</h3>
                 <div class="form-group">
                     <label for="amount"><small><strong>how much do you want to save<strong></small></label>
-                    <input type="text" name= "samount" class="form-control amount" placeholder="amount"><br>
+                    <input type="text" id = "samount" name= "samount" class="form-control amount" placeholder="amount"><br>
                 </div>
                 <div class="form-check form-inline">
                     <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
                     <small>I agree to this transaction</small>
                 </div>
-                <!-- <script src="https://js.paystack.co/v1/inline.js"></script> -->
-                <button type="submit" class="btn mt-5 btn-primary" > Save </button>
+                <script src="https://js.paystack.co/v1/inline.js"></script>
+                <button type="button" onclick="payWithPaystack()"> Save </button> 
+                
             </form>
         </div>
     </div>
@@ -66,12 +67,14 @@
 </body>
 
 </html>
-<!-- <script>
+<script>
         function payWithPaystack(){
-          var handler = PaystackPop.setup({
-            key: 'pk_test_86d32aa1nV4l1da7120ce530f0b221c3cb97cbcc',
+            var deposit_amount = $("#samount").val()
+            paystack_amount = deposit_amount * 100
+            var handler = PaystackPop.setup({
+            key: 'pk_test_cfa65aed1375fb032bd3a21630ebac85a63c2166',
             email: 'customer@email.com',
-            amount: 10000,
+            amount: paystack_amount,
             currency: "NGN",
             ref: ''+Math.floor((Math.random() * 1000000000) + 1), // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
             metadata: {
@@ -84,7 +87,18 @@
                ]
             },
             callback: function(response){
-                alert('success. transaction ref is ' + response.reference);
+                $.ajax({
+                    type: "POST",
+                    url: "/save",
+                    data: JSON.stringify({
+                        deposit_amount:deposit_amount,
+                        reference: response.reference                    
+                    }
+                    ),
+                    contentType: "application/json;charset=UTF-8",
+                   
+                    });                               
+
             },
             onClose: function(){
                 alert('window closed');
@@ -92,4 +106,4 @@
           });
           handler.openIframe();
         }
-      </script> -->
+      </script>
