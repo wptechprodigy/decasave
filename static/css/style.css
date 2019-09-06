@@ -64,6 +64,9 @@ form {
   margin-bottom: 30px;
   background-size: cover;
 }
+.intro-contents img{
+  margin-top: 40px;
+}
 .holder{
   background-color: #fff;
   /* width: 100%;
@@ -77,18 +80,12 @@ form {
 .hold-words{
   background-color: #fff;
   margin-top: 100px;
-  margin-left: 180px;
-}
-.jumbotron {
-  margin-top: 100px;
-  margin-left: 220px;
-  background-image: url("./img/coins.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
+  /* margin-left: 180px; */
 }
 .save-header{
   color: #5271ff;
   margin-top: 20px;
+  font-size: 40px;
 }
 .save-talk{
   color: #444;
@@ -109,6 +106,12 @@ margin-left: 0px;
 .app-store2{
 height: 60px;
 margin-top: 50px;
+}
+.padding{
+  background-color: #fbfbfb;
+}
+.experience-style{
+  padding: 10px;
 }
 .space-card{
 margin-left: 20px;
@@ -157,7 +160,7 @@ margin-left: 10px;
 font-size: 14px;
 }
 .form-row textarea{
-margin-left: 17px;
+margin-left: 5px;
 width: 100%;
 border-radius: 4px;
 font-size: 14px;
@@ -194,7 +197,7 @@ margin-left: 50px;
 font-size: 30px;
 }
 footer{
-background-color: white;
+background-color: #eafaff;
 color: black;
 }
 .copy{
@@ -233,6 +236,7 @@ text-align: left;
 .accordion .card-header .collapsed:after{
   content: "\f067";
 }
+
 /*Forgot Password style*/
 a{
   text-decoration: none !important;
@@ -246,11 +250,7 @@ a{
   color: #5271ff;
   margin-top: 0px;
 }
-
-#regform{
-  margin-top: 100px !important;
-  padding: 20px !important;
-}
-.wbtn:hover {
-  background-color: rgb(235, 39, 39) !important;
+/*Apology*/
+.size-img{
+  background-size: contain;
 }
