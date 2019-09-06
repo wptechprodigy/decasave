@@ -194,7 +194,7 @@ margin-left: 50px;
 font-size: 30px;
 }
 footer{
-background-color: white;
+background-color: #eafaff;
 color: black;
 }
 .copy{
@@ -233,6 +233,7 @@ text-align: left;
 .accordion .card-header .collapsed:after{
   content: "\f067";
 }
+
 /*Forgot Password style*/
 a{
   text-decoration: none !important;
@@ -245,12 +246,4 @@ a{
 .color-reset{
   color: #5271ff;
   margin-top: 0px;
-}
-
-#regform{
-  margin-top: 100px !important;
-  padding: 20px !important;
-}
-.wbtn:hover {
-  background-color: rgb(235, 39, 39) !important;
 }
