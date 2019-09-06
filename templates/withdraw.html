@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href=" https://use.fontawesome.com/releases/v5.0.7/css/all.css">
-    <link rel="stylesheet" href="../static/style.css">
+    <link rel="stylesheet" href="../static/css/style.css">
     <title>DecaSave: Save</title>
 </head>
 
@@ -40,6 +40,14 @@
         <div class="d-flex justify-content-center rounded">
             <form class="card" action="/withdraw" method="POST" id="withdrawform">
                 <h3 class="text-center reghead withdraw">Withdraw</h3>
+                <div class="card p-1 text-left mb-5 text-light bg-primary">
+                        <div class="card-header">Destination account</div>
+                        <div class="card-body">
+                            Name:{{}}<br>
+                            Bank:{{}}<br>
+                            Account:{{}}
+                        </div>
+                    </div>
                 <div class="form-group">
                     <input type="text" class="form-control amount" name= "wamount" placeholder="amount">
                     <label for="amount"><small class="text-muted">how much do you want to withdraw</small></label><br>
@@ -55,7 +63,7 @@
                     <div class="form-group">
                     </div>
                 </div>
-                <button type="submit" class="btn btn-danger regbtn"> Make Withdrawal</button>
+                <button type="submit" class="btn wbtn btn-primary regbtn"> Make Withdrawal</button>
             </form>
         </div>
     </div>
