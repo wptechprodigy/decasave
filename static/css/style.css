@@ -233,7 +233,6 @@ text-align: left;
 .accordion .card-header .collapsed:after{
   content: "\f067";
 }
-
 /*Forgot Password style*/
 a{
   text-decoration: none !important;

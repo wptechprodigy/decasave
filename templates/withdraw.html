@@ -38,14 +38,14 @@
     </header>
     <div class="container" id="save-container">
         <div class="d-flex justify-content-center rounded">
-            <form class="card" action="" id="withdrawform">
+            <form class="card" action="/withdraw" method="POST" id="withdrawform">
                 <h3 class="text-center reghead withdraw">Withdraw</h3>
                 <div class="form-group">
-                    <input type="text" class="form-control amount" placeholder="amount">
+                    <input type="text" class="form-control amount" name= "wamount" placeholder="amount">
                     <label for="amount"><small class="text-muted">how much do you want to withdraw</small></label><br>
                 </div>
                 <div class="form-group">
-                    <input type="wpassword" class="form-control wpassword" placeholder="password"> <label
+                    <input type="wpassword" name="wpassword" class="form-control wpassword" placeholder="password"> <label
                         for="wpassword"><small class="text-muted">for security reasons, please input your decaSave
                             password</small></label><br>
                 </div>
