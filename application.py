@@ -90,9 +90,13 @@ def save():
         return render_template("save.html")
     elif request.method == "POST":
         now= datetime.now()
-        samount= request.form.get("samount")
-        save_balance = db.execute("SELECT balance FROM users WHERE id=:id", id=session["user_id"])        
+        result= request.get_json()
+        samount=result["deposit_amount"]
+        ref=result["reference"]
+        print(samount)
+        save_balance = db.execute("SELECT balance FROM users WHERE id=:id", id=session["user_id"])    
         new_balance = float(samount) + save_balance[0]['balance']
+        print(new_balance)
         db.execute("UPDATE users SET balance=:new_balance WHERE id=:id", new_balance=new_balance, id=session["user_id"])
         db.execute("INSERT INTO tranzact(users_id, trans_amount, current_balance, 'time') VALUES(:users_id, :trans_amount, :current_balance, :time)", users_id=session["user_id"], trans_amount=samount, current_balance=new_balance, time=now)
 
