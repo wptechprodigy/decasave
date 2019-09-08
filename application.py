@@ -139,3 +139,9 @@ def transactions():
 def faq():
     if request.method == "GET":
         return render_template("faq.html")
+
+@app.route("/logout")
+@login_required
+def logout():
+    session.clear()
+    return redirect("/")
