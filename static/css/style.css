@@ -254,3 +254,8 @@ a{
 .size-img{
   background-size: contain;
 }
+
+/*transactions table*/
+.table-style{
+  margin-top: 200px !important;
+}
