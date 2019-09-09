@@ -127,3 +127,15 @@ def withdraw():
         db.execute("UPDATE users SET balance=:new_balance WHERE id=:id", new_balance=new_balance, id=session["user_id"])
         db.execute("INSERT INTO tranzact(users_id, deposit, withdrawal, current_balance, 'time') VALUES(:users_id, :deposit, :withdrawal, :current_balance, :time)", users_id=session["user_id"], deposit=samount, withdrawal=wamount, current_balance=new_balance, time=now)
         return render_template("dashboard-layout.html")
+
+@app.route("/transactions")
+@login_required
+def transactions():
+    trans_history = db.execute("SELECT * FROM tranzact WHERE users_id = :users_id", users_id=session["user_id"])
+    print(trans_history)
+    return render_template("transactions.html", transactions=trans_history)
+
+@app.route("/faq", methods=["GET", "POST"])
+def faq():
+    if request.method == "GET":
+        return render_template("faq.html")
