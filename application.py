@@ -86,7 +86,11 @@ def login():
         if len(rows) != 1 or not check_password_hash(rows[0]["hash"], password):
             return apology("this user does not exist", 400)
         session["user_id"] = rows[0]["id"]
-        return render_template("dashboard-layout.html")
+        
+        # Grab user details
+        userDetails = db.execute("SELECT * FROM users WHERE id= :id", id=session["user_id"])
+        print(userDetails)
+        return render_template("user-dashboard.html", userDetails=userDetails)
     else:
         return render_template("login.html")
 
