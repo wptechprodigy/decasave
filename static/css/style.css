@@ -252,7 +252,31 @@ a{
 }
 /*Apology*/
 .size-img{
-  background-size: contain;
+  padding-top: 120px;
+  background-size: cover;
+}
+main .form-control
+{
+    /* center form controls */
+    display: inline-block;
+
+    /* override Bootstrap's 100% width for form controls */
+    width: auto;
+}
+
+main
+{
+    /* scroll horizontally as needed */
+    overflow-x: auto;
+
+    /* center contents */
+    text-align: center;
+}
+
+main img
+{
+    /* constrain images on small screens */
+    max-width: 100%;
 }
 
 #reframe, #submitted{
@@ -261,4 +285,60 @@ a{
 /*transactions table*/
 .table-style{
   margin-top: 200px !important;
+  margin-left: 200px !important;
 }
+
+/* Media Query */
+@media only screen and (max-width: 768px) {
+    .intro-contents{
+      display: none;
+    }
+    .holder{
+      background-image: url("../static/img/coins.jpg");
+      /*background-color: red;*/
+    }
+    .hold-words{
+      margin-left: 150px;
+      text-align: center;
+      background-color: red;
+    }
+    .save-header{
+      color: #5271ff;
+      margin-top: 20px;
+      font-size: 40px;
+      width: 100% !important;
+    }
+    .save-talk{
+      color: #444;
+      margin-top: 20px;
+      /* width: 50% !important; */
+      font-weight: bold;
+      width: 100% !important;
+    }
+    .earn-talk{
+      color: #444;
+      width: 100% !important;
+      font-weight: bold;
+    }
+    .app-store{
+    height: 50px;
+    margin-top: 50px;
+    margin-left: 0px;
+    }
+    .app-store2{
+    height: 60px;
+    margin-top: 50px;
+    }
+    input[type=button]{
+    width: 50%;
+    padding: 7px 10px;
+    margin: 2px 10px 8px 0px;
+    }
+    .social a{
+    margin-left: 20px;
+    font-size: 20px;
+    padding: 10px;
+    color: black;
+    text-align: left;
+    }
+  }
