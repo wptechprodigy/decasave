@@ -17,6 +17,13 @@ app = Flask(__name__)
 # Ensure templates are auto-reloaded
 app.config["TEMPLATES_AUTO_RELOAD"] = True
 
+@app.after_request
+def after_request(response):
+    response.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
+    response.headers["Expires"] = 0
+    response.headers["Pragma"] = "no-cache"
+    return response
+
 app.config["SESSION_FILE_DIR"] = mkdtemp()
 app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
@@ -79,7 +86,11 @@ def login():
         if len(rows) != 1 or not check_password_hash(rows[0]["hash"], password):
             return apology("this user does not exist", 400)
         session["user_id"] = rows[0]["id"]
-        return render_template("dashboard-layout.html")
+        
+        # Grab user details
+        userDetails = db.execute("SELECT * FROM users WHERE id= :id", id=session["user_id"])
+        print(userDetails)
+        return render_template("user-dashboard.html", userDetails=userDetails)
     else:
         return render_template("login.html")
 

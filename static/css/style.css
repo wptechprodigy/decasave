@@ -279,6 +279,9 @@ main img
     max-width: 100%;
 }
 
+#reframe, #submitted{
+  display: none;
+}
 /*transactions table*/
 .table-style{
   margin-top: 200px !important;
