@@ -89,7 +89,6 @@ def login():
         
         # Grab user details
         userDetails = db.execute("SELECT * FROM users WHERE id= :id", id=session["user_id"])
-        print(userDetails)
         return render_template("user-dashboard.html", userDetails=userDetails)
     else:
         return render_template("login.html")
@@ -111,8 +110,10 @@ def save():
         print(new_balance)
         db.execute("UPDATE users SET balance=:new_balance WHERE id=:id", new_balance=new_balance, id=session["user_id"])
         db.execute("INSERT INTO tranzact(users_id, deposit, withdrawal, current_balance, 'time') VALUES(:users_id, :deposit, :withdrawal, :current_balance, :time)", users_id=session["user_id"], deposit=samount, withdrawal=wamount, current_balance=new_balance, time=now)
-
-        return render_template("/dashboard-layout.html")
+        
+        # Grab user details
+        userDetails = db.execute("SELECT * FROM users WHERE id= :id", id=session["user_id"])
+        return redirect("/user-dashboard", userDetails=userDetails)
 
 @app.route("/withdraw", methods=["GET", "POST"])
 @login_required
@@ -137,7 +138,10 @@ def withdraw():
         new_balance = balance[0]["balance"] - wamount
         db.execute("UPDATE users SET balance=:new_balance WHERE id=:id", new_balance=new_balance, id=session["user_id"])
         db.execute("INSERT INTO tranzact(users_id, deposit, withdrawal, current_balance, 'time') VALUES(:users_id, :deposit, :withdrawal, :current_balance, :time)", users_id=session["user_id"], deposit=samount, withdrawal=wamount, current_balance=new_balance, time=now)
-        return render_template("dashboard-layout.html")
+        
+        # Grab user details
+        userDetails = db.execute("SELECT * FROM users WHERE id= :id", id=session["user_id"])
+        return render_template("/user-dashboard", userDetails=userDetails)
 
 @app.route("/transactions")
 @login_required
@@ -150,6 +154,15 @@ def transactions():
 def faq():
     if request.method == "GET":
         return render_template("faq.html")
+
+@app.route("/user-dashboard", methods=["GET", "POST"])
+@login_required
+def user_dashboard():
+    if request.method == "GET":
+        
+        # Grab user details
+        userDetails = db.execute("SELECT * FROM users WHERE id= :id", id=session["user_id"])
+        return render_template("user-dashboard.html", userDetails=userDetails)
 
 @app.route("/logout")
 @login_required
