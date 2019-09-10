@@ -254,6 +254,7 @@ a{
 .size-img{
   background-size: contain;
 }
-#iframe{
+
+#reframe, #submitted{
   display: none;
 }
