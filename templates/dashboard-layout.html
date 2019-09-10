@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-  <title>DecaSave: Online Saving Portal</title>
+  <title>DecaSave: {% block title %}{% endblock %}</title>
 
   <!-- Bootstrap CSS CDN -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
@@ -34,7 +34,7 @@
         <li><a href="/withdraw"><i class="fas fa-money-check-alt"></i> <span class="link-name"></span>Withdraw</a></li>
         <li><a href="/transactions"><i class="fas fa-info-circle"></i> <span class="link-name">Transaction Details</span></a></li>
         <li><a href="/my-account"><i class="fas fa-cogs"></i> <span class="link-name">My Account</span></a></li>
-        <li><a href="/login"><i class="fas fa-door-open"></i> <span class="link-name">Logout</span></a></li>
+        <li><a href="/"><i class="fas fa-door-open"></i> <span class="link-name">Logout</span></a></li>
       </ul>
     </nav>
 
@@ -52,6 +52,7 @@
       </nav>
 
       <!-- Page content goes in here -->
+      {% block main %}{% endblock %}
       
       <footer class="main-footer">
         <div class="container-fluid">
