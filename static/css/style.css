@@ -254,3 +254,6 @@ a{
 .size-img{
   background-size: contain;
 }
+#iframe{
+  display: none;
+}
