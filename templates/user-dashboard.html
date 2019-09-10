@@ -1,0 +1,56 @@
+{% extends "dashboard-layout.html" %} 
+  {% block title %} My Dashboard {% endblock %} 
+  
+  {% block main %}
+  <div class="mt-5">
+    <div class="container-fluid">
+      <h3 class="mb-3">Hi {{ userDetails[0]["firstname"] }}!</h3>
+      <div class="row">
+        <div class="col-lg-6 mb-5">
+          <div class="card">
+            <div class="card-header">
+              <h3>Save</h3>
+            </div>
+            <div class="card-body">
+              <p>Save some money...<br>Account balance: {{ userDetails[0]['balance'] }}</p>
+              <a href="/save" class="btn btn-primary btn-lg">Save</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 mb-5">
+          <div class="card">
+            <div class="card-header">
+              <h3>Withdraw</h3>
+            </div>
+            <div class="card-body">
+              <p>Would you like to withdraw some money?</p>
+              <a href="/withdraw" class="btn btn-primary btn-lg">Withdraw</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="card">
+            <div class="card-header">
+              <h3>Transactions</h3>
+            </div>
+            <div class="card-body">
+              <p>Here's a summary of your transaction</p>
+              <a href="/transactions" class="btn btn-primary btn-lg">Transaction Details</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="card">
+            <div class="card-header">
+              <h3>My Account Settings</h3>
+            </div>
+            <div class="card-body">
+              <p>You can edit your account info here</p>
+              <a href="/my-account" class="btn btn-primary btn-lg">Edit My Account</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endblock main %}
