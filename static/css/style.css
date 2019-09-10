@@ -255,6 +255,9 @@ a{
   background-size: contain;
 }
 
+#reframe, #submitted{
+  display: none;
+}
 /*transactions table*/
 .table-style{
   margin-top: 200px !important;
