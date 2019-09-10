@@ -141,7 +141,7 @@ def withdraw():
         
         # Grab user details
         userDetails = db.execute("SELECT * FROM users WHERE id= :id", id=session["user_id"])
-        return render_template("/user-dashboard", userDetails=userDetails)
+        return render_template("user-dashboard.html", userDetails=userDetails)
 
 @app.route("/transactions")
 @login_required
@@ -160,8 +160,8 @@ def user_dashboard():
     if request.method == "GET":
         
         # Grab user details
-        userDetails = db.execute("SELECT * FROM users WHERE id= :id", id=session["user_id"])
-        return render_template("user-dashboard.html", userDetails=userDetails)
+        # userDetails = db.execute("SELECT * FROM users WHERE id= :id", id=session["user_id"])
+        return render_template("user-dashboard.html")
       
 @app.route("/forgot-password", methods=["GET", "POST"])
 def forgot_password():
