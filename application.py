@@ -119,8 +119,8 @@ def save():
 @login_required
 def withdraw():
     if request.method == "GET":
-        # user = db.execute("SELECT firstname, bank, account_no FROM users where id=:id", id=session["user_id"])
-        return render_template("withdraw.html",)
+        users = db.execute("SELECT firstname, bank, account_no FROM users where id=:id", id=session["user_id"])
+        return render_template("withdraw.html", users=users)
     elif request.method == "POST":
         wamount = int(request.form.get("wamount"))
         now= datetime.now()
@@ -147,7 +147,6 @@ def withdraw():
 @login_required
 def transactions():
     trans_history = db.execute("SELECT * FROM tranzact WHERE users_id = :users_id", users_id=session["user_id"])
-    print(trans_history)
     return render_template("transactions.html", transactions=trans_history)
 
 @app.route("/faq", methods=["GET", "POST"])
@@ -163,6 +162,11 @@ def user_dashboard():
         # Grab user details
         userDetails = db.execute("SELECT * FROM users WHERE id= :id", id=session["user_id"])
         return render_template("user-dashboard.html", userDetails=userDetails)
+      
+@app.route("/forgot-password", methods=["GET", "POST"])
+def forgot_password():
+    if request.method == "GET":
+        return render_template("forgot-password.html")
 
 @app.route("/logout")
 @login_required
