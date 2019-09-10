@@ -255,6 +255,12 @@ a{
   background-size: contain;
 }
 
+<<<<<<< HEAD
 #reframe, #submitted{
   display: none;
+=======
+/*transactions table*/
+.table-style{
+  margin-top: 200px !important;
+>>>>>>> develop
 }

@@ -97,10 +97,58 @@ def save():
         return render_template("save.html")
     elif request.method == "POST":
         now= datetime.now()
-        samount= request.form.get("samount")
-        save_balance = db.execute("SELECT balance FROM users WHERE id=:id", id=session["user_id"])        
+        result= request.get_json()
+        samount=result["deposit_amount"]
+        ref=result["reference"]
+        wamount = ""
+        print(samount)
+        save_balance = db.execute("SELECT balance FROM users WHERE id=:id", id=session["user_id"])    
         new_balance = float(samount) + save_balance[0]['balance']
+        print(new_balance)
         db.execute("UPDATE users SET balance=:new_balance WHERE id=:id", new_balance=new_balance, id=session["user_id"])
-        db.execute("INSERT INTO tranzact(users_id, trans_amount, current_balance, 'time') VALUES(:users_id, :trans_amount, :current_balance, :time)", users_id=session["user_id"], trans_amount=samount, current_balance=new_balance, time=now)
+        db.execute("INSERT INTO tranzact(users_id, deposit, withdrawal, current_balance, 'time') VALUES(:users_id, :deposit, :withdrawal, :current_balance, :time)", users_id=session["user_id"], deposit=samount, withdrawal=wamount, current_balance=new_balance, time=now)
 
         return render_template("/dashboard-layout.html")
+
+@app.route("/withdraw", methods=["GET", "POST"])
+@login_required
+def withdraw():
+    if request.method == "GET":
+        # user = db.execute("SELECT firstname, bank, account_no FROM users where id=:id", id=session["user_id"])
+        return render_template("withdraw.html",)
+    elif request.method == "POST":
+        wamount = int(request.form.get("wamount"))
+        now= datetime.now()
+        try:
+            int(request.form.get("wamount"))
+        except:
+            return apology("Withdrawals must be a positive value", 400)
+        wamount = int(request.form.get("wamount"))
+        samount = ""
+        if wamount <= 0:
+            return apology("Please Enter a positive value")
+        balance = db.execute("SELECT balance FROM users WHERE id=:id", id=session["user_id"])
+        if wamount > balance[0]["balance"]:
+            return apology("Insufficient funds")
+        new_balance = balance[0]["balance"] - wamount
+        db.execute("UPDATE users SET balance=:new_balance WHERE id=:id", new_balance=new_balance, id=session["user_id"])
+        db.execute("INSERT INTO tranzact(users_id, deposit, withdrawal, current_balance, 'time') VALUES(:users_id, :deposit, :withdrawal, :current_balance, :time)", users_id=session["user_id"], deposit=samount, withdrawal=wamount, current_balance=new_balance, time=now)
+        return render_template("dashboard-layout.html")
+
+@app.route("/transactions")
+@login_required
+def transactions():
+    trans_history = db.execute("SELECT * FROM tranzact WHERE users_id = :users_id", users_id=session["user_id"])
+    print(trans_history)
+    return render_template("transactions.html", transactions=trans_history)
+
+@app.route("/faq", methods=["GET", "POST"])
+def faq():
+    if request.method == "GET":
+        return render_template("faq.html")
+
+@app.route("/logout")
+@login_required
+def logout():
+    session.clear()
+    return redirect("/")
