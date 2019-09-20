@@ -31,7 +31,6 @@ MarkupSafe==1.1.1
 netifaces==0.10.4
 numpy==1.17.0
 oauthlib==2.0.6
-PAM==0.4.2
 pexpect==4.7.0
 ptyprocess==0.6.0
 pyasn1==0.4.2
