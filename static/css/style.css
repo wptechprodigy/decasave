@@ -1,0 +1,344 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html, body{
+  height: 100%;
+  width: 100%;
+  font-family: "Poppins", sans-serif;
+  color: #222;
+  background-color: #eafaff;
+}
+.logo{
+  width: 30% !important;
+}
+.nav-spacing{
+  text-align: left;
+  margin-right: 70px;
+}
+.top-space{
+  margin-top: 8px;
+}
+.nav-styling{
+  background-color:#fff;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15);
+}
+.btn-color:hover{
+    background-color: #5271ff !important;
+}
+.btn-color2:hover{
+  background-color: #fff !important;
+  color: #5271ff !important;
+}
+.txt-color, .withdraw{
+  color: #5271ff !important;
+}
+.txt-color{
+    color: #5271ff !important;
+}
+.txt-color:hover{
+    color: #5ce1e6 !important;
+}
+.login-container {
+  margin: 0 auto;
+  padding-top: 10%;
+}
+
+form {
+  padding: 5rem 2.5rem;
+  margin: 20% auto;
+}
+.reghead{
+  padding-bottom: 3rem;
+}
+.regbtn{
+  margin-top: 3rem;
+}
+.intro{
+  background-color: #fff;
+  color: #5271ff;
+}
+.intro-contents{
+  margin-top: 100px;
+  margin-bottom: 30px;
+  background-size: cover;
+}
+.intro-contents img{
+  margin-top: 40px;
+}
+.holder{
+  background-color: #fff;
+  /* width: 100%;
+  background: url("./img/coins.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-left: 220px !important;
+  margin-top: 100px; 
+  */
+}
+.hold-words{
+  background-color: #fff;
+  margin-top: 100px;
+  /* margin-left: 180px; */
+}
+.save-header{
+  color: #5271ff;
+  margin-top: 20px;
+  font-size: 40px;
+}
+.save-talk{
+  color: #444;
+  margin-top: 20px;
+  /* width: 50% !important; */
+  font-weight: bold;
+}
+.earn-talk{
+  color: #444;
+  width: 50% !important;
+  font-weight: bold;
+}
+.app-store{
+height: 50px;
+margin-top: 50px;
+margin-left: 0px;
+}
+.app-store2{
+height: 60px;
+margin-top: 50px;
+}
+.padding{
+  background-color: #fbfbfb;
+}
+.experience-style{
+  padding: 10px;
+}
+.space-card{
+margin-left: 20px;
+margin-top: 20px;
+border: none !important;
+}
+.space-card img{
+width: 50%;
+}
+.card-bg{
+background-color: white !important;
+}
+._middle{
+text-align: center;
+}
+.adjust-bar{
+background-color: #F4F8FC;
+}
+.about{
+margin-top: 50px;
+}
+.val-talk{
+text-overflow: ellipsis;
+text-justify: auto;
+font-size: 20px;
+}
+.grid .middle-xs{
+align-items: center;
+}
+.grid .center-xs{
+justify-content: center;
+}
+.text-center{
+text-align: center;
+}
+.form-design{
+background-color:lightblue;
+color: black;
+margin-top: 20px;
+}
+.contact{
+margin-top: 20px;
+}
+input[type=text], input[type=email]{
+margin-left: 10px;
+font-size: 14px;
+}
+.form-row textarea{
+margin-left: 5px;
+width: 100%;
+border-radius: 4px;
+font-size: 14px;
+border: 1px solid #D6D9DC;
+min-height: 100px;
+margin-bottom: 10px;
+padding: 7px;
+resize: none;
+}
+input[type=button]{
+width: 50%;
+padding: 7px 10px;
+margin: 2px 10px 8px 150px;
+display: inline-block;
+border: none;
+background-color: #5271ff;
+border-radius: 4px;
+box-sizing: border-box;	
+cursor: pointer;
+color: white;
+font-size: 18px;
+}
+input[type=button]:hover{
+background-color: grey;
+}
+input[type=button] a{
+color: white;
+}
+input[type=button] a:hover{
+color: black;
+}
+.col-lg-6 h4{
+margin-left: 50px;
+font-size: 30px;
+}
+footer{
+background-color: #eafaff;
+color: black;
+}
+.copy{
+margin-top: 20px;
+}
+.social a{
+margin-left: 20px;
+font-size: 40px;
+padding: 20px;
+color: black;
+text-align: left;
+}
+
+/*FAQ styling*/
+.faqs{
+  margin-top: 100px;
+}
+#faqs{
+  color: #5271ff;
+}
+.freq-style{
+  margin-left: 250px;
+}
+.questions{
+  text-decoration: none;
+  color: #5271ff !important;
+}
+.questions:hover{
+  text-decoration: none !important;
+}
+.accordion .card-header:after{
+  font-family: "FontAwesome";
+  content: "\f068";
+  float: right;
+}
+.accordion .card-header .collapsed:after{
+  content: "\f067";
+}
+
+/*Forgot Password style*/
+a{
+  text-decoration: none !important;
+  text-align: center;
+  margin-top: 10px;
+}
+.form-control{
+  margin-left: 0px !important;
+}
+.color-reset{
+  color: #5271ff;
+  margin-top: 0px;
+}
+/*Apology*/
+.size-img{
+  padding-top: 120px;
+  background-size: cover;
+}
+main .form-control
+{
+    /* center form controls */
+    display: inline-block;
+
+    /* override Bootstrap's 100% width for form controls */
+    width: auto;
+}
+
+main
+{
+    /* scroll horizontally as needed */
+    overflow-x: auto;
+
+    /* center contents */
+    text-align: center;
+}
+
+main img
+{
+    /* constrain images on small screens */
+    max-width: 100%;
+}
+
+#reframe, #submitted{
+  display: none;
+}
+/*transactions table*/
+.table-style{
+  margin-top: 200px !important;
+  margin-left: 200px !important;
+}
+
+/* Media Query */
+@media only screen and (max-width: 768px) {
+    .intro-contents{
+      display: none;
+    }
+    .holder{
+      background-image: url("../static/img/coins.jpg");
+      /*background-color: red;*/
+    }
+    .hold-words{
+      margin-left: 150px;
+      text-align: center;
+      background-color: red;
+    }
+    .save-header{
+      color: #5271ff;
+      margin-top: 20px;
+      font-size: 40px;
+      width: 100% !important;
+    }
+    .save-talk{
+      color: #444;
+      margin-top: 20px;
+      /* width: 50% !important; */
+      font-weight: bold;
+      width: 100% !important;
+    }
+    .earn-talk{
+      color: #444;
+      width: 100% !important;
+      font-weight: bold;
+    }
+    .app-store{
+    height: 50px;
+    margin-top: 50px;
+    margin-left: 0px;
+    }
+    .app-store2{
+    height: 60px;
+    margin-top: 50px;
+    }
+    input[type=button]{
+    width: 50%;
+    padding: 7px 10px;
+    margin: 2px 10px 8px 0px;
+    }
+    .social a{
+    margin-left: 20px;
+    font-size: 20px;
+    padding: 10px;
+    color: black;
+    text-align: left;
+    }
+  }
