@@ -8,7 +8,7 @@ html, body{
   width: 100%;
   font-family: "Poppins", sans-serif;
   color: #222;
-  background-color: #eafaff;
+  /* background-color: #eafaff; */
 }
 .logo{
   width: 30% !important;
@@ -300,7 +300,6 @@ main img
     .hold-words{
       margin-left: 150px;
       text-align: center;
-      background-color: red;
     }
     .save-header{
       color: #5271ff;
