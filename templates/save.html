@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href=" https://use.fontawesome.com/releases/v5.0.7/css/all.css">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="icon" href="../static/img/decasave_real.png">
+    <title>DecaSave: Save</title>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-md navbar-light nav-styling fixed-top justify-content-center">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/"><img src="../static/img/decasave_real.png" class="logo"></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item top-space nav-spacing"><a class="nav-link txt-color" href="/user-dashboard">Home</a></li>
+                        <li class="nav-item top-space nav-spacing"><a class="nav-link txt-color" href="/#about">About</a></li>
+                        <li class="nav-item top-space nav-spacing"><a class="nav-link txt-color" href="/#contact">Contact</a></li>
+                        <li class="nav-item top-space nav-spacing"><a class="nav-link txt-color" href="/faq">FAQ</a></li>
+                        <li class="nav-item top-space nav-spacing"><a class="nav-link txt-color" href="/">Log Out</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container" id="save-container">
+        <div class="d-flex justify-content-center rounded">
+            <form class="card text-center" action="/save" method="POST" id="saveform">
+                <h3 class="text-center text-primary reghead">Save</h3>
+                <div class="form-group">
+                    <label for="amount"><small><strong>how much do you want to save<strong></small></label>
+                    <input type="text" id = "samount" name= "samount" class="form-control amount" placeholder="amount" required><br>
+                </div>
+                <div class="form-check form-inline">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" required>
+                    <small>I agree to this transaction</small>
+                </div>
+                <script src="https://js.paystack.co/v1/inline.js"></script>
+                <button type="button" onclick="payWithPaystack()" class="btn btn-primary regbtn"> Save </button> 
+                
+            </form>
+        </div>
+    </div>
+    <footer>
+        <div class="container-fluid padding">
+            <div class="row text-center">
+                
+                <div class="col-lg-4 social">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+                <div class="col-lg-4 copy">
+                    <h5>DecaSave Copyright &copy; 2019 | Powered by Pod7</h5>
+                </div>
+                <div class="col-2"></div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+</body>
+
+</html>
+<script>
+        function payWithPaystack(){
+            var deposit_amount = $("#samount").val()
+            paystack_amount = deposit_amount * 100
+            var handler = PaystackPop.setup({
+            key: 'pk_test_cfa65aed1375fb032bd3a21630ebac85a63c2166',
+            email: 'customer@email.com',
+            amount: paystack_amount,
+            currency: "NGN",
+            ref: ''+Math.floor((Math.random() * 1000000000) + 1), // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
+            metadata: {
+               custom_fields: [
+                  {
+                      display_name: "Mobile Number",
+                      variable_name: "mobile_number",
+                      value: "+2348012345678"
+                  }
+               ]
+            },
+            callback: function(response){
+                $.ajax({
+                    type: "POST",
+                    url: "/save",
+                    data: JSON.stringify({
+                        deposit_amount:deposit_amount,
+                        reference: response.reference                    
+                    }
+                    ),
+                    contentType: "application/json;charset=UTF-8",
+                   
+                    });                               
+
+            },
+            onClose: function(){
+                alert('window closed');
+            }
+          });
+          handler.openIframe();
+        }
+      </script>
