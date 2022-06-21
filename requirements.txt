@@ -29,7 +29,7 @@ keyrings.alt==3.0
 lib50==2.0.0
 MarkupSafe==1.1.1
 netifaces==0.10.4
-numpy==1.17.0
+numpy==1.22.0
 oauthlib==2.0.6
 pexpect==4.7.0
 ptyprocess==0.6.0
